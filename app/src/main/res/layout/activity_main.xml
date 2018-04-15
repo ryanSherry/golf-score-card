@@ -19,18 +19,21 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"/>
          <TextView
-            android:layout_width="wrap_content"
+             android:id="@+id/hole1Label"
+             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"/>
         <Button
+            android:id="@+id/hole1Minus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
             android:layout_weight="1"/>
         <Button
+            android:id="@+id/hole1Plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
@@ -60,6 +63,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"/>
         <TextView
+            android:id="@+id/hole2Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
@@ -67,11 +71,13 @@
             android:textSize="20sp"
             android:textStyle="bold"/>
         <Button
+            android:id="@+id/hole2Minus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
             android:layout_weight="1"/>
         <Button
+            android:id="@+id/hole2Plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
