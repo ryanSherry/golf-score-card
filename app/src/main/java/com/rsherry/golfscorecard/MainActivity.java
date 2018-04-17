@@ -3,6 +3,9 @@ package com.rsherry.golfscorecard;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -193,6 +196,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hole17Label.setText(String.valueOf(hole17Swings));
         hole18Label.setText(String.valueOf(hole18Swings));
         sumOfSwingsLabel.setText(String.valueOf(sumOfSwings));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.golf_card_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.clear_swings:
+                clearSwings();
+                return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void clearSwings() {
+        hole1Swings = 0;
+        hole2Swings = 0;
+        hole3Swings = 0;
+        hole4Swings = 0;
+        hole5Swings = 0;
+        hole6Swings = 0;
+        hole7Swings = 0;
+        hole8Swings = 0;
+        hole9Swings = 0;
+        hole10Swings = 0;
+        hole11Swings = 0;
+        hole12Swings = 0;
+        hole13Swings = 0;
+        hole14Swings = 0;
+        hole15Swings = 0;
+        hole16Swings = 0;
+        hole17Swings = 0;
+        hole18Swings = 0;
+        sumOfSwings = 0;
+
+        hole1Label.setText(String.valueOf(hole1Swings));
+        hole2Label.setText(String.valueOf(hole2Swings));
+        hole3Label.setText(String.valueOf(hole3Swings));
+        hole4Label.setText(String.valueOf(hole4Swings));
+        hole5Label.setText(String.valueOf(hole5Swings));
+        hole6Label.setText(String.valueOf(hole6Swings));
+        hole7Label.setText(String.valueOf(hole7Swings));
+        hole8Label.setText(String.valueOf(hole8Swings));
+        hole9Label.setText(String.valueOf(hole9Swings));
+        hole10Label.setText(String.valueOf(hole10Swings));
+        hole11Label.setText(String.valueOf(hole11Swings));
+        hole12Label.setText(String.valueOf(hole12Swings));
+        hole13Label.setText(String.valueOf(hole13Swings));
+        hole14Label.setText(String.valueOf(hole14Swings));
+        hole15Label.setText(String.valueOf(hole15Swings));
+        hole16Label.setText(String.valueOf(hole16Swings));
+        hole17Label.setText(String.valueOf(hole17Swings));
+        hole18Label.setText(String.valueOf(hole18Swings));
+        sumOfSwingsLabel.setText(String.valueOf(sumOfSwings));
+
     }
 
     @Override
