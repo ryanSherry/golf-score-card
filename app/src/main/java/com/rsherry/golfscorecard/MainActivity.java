@@ -100,6 +100,93 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView hole18Label;
     int hole18Swings = 0;
 
+    //shared preferences
+
+    private static  final String KEY_HOLE_1 =  "KEY_HOLE_1";
+    private static  final String KEY_HOLE_2 =  "KEY_HOLE_2";
+    private static  final String KEY_HOLE_3 =  "KEY_HOLE_3";
+    private static  final String KEY_HOLE_4 =  "KEY_HOLE_4";
+    private static  final String KEY_HOLE_5 =  "KEY_HOLE_5";
+    private static  final String KEY_HOLE_6 =  "KEY_HOLE_6";
+    private static  final String KEY_HOLE_7 =  "KEY_HOLE_7";
+    private static  final String KEY_HOLE_8 =  "KEY_HOLE_8";
+    private static  final String KEY_HOLE_9 =  "KEY_HOLE_9";
+    private static  final String KEY_HOLE_10 =  "KEY_HOLE_10";
+    private static  final String KEY_HOLE_11 =  "KEY_HOLE_11";
+    private static  final String KEY_HOLE_12 =  "KEY_HOLE_12";
+    private static  final String KEY_HOLE_13 =  "KEY_HOLE_13";
+    private static  final String KEY_HOLE_14 =  "KEY_HOLE_14";
+    private static  final String KEY_HOLE_15 =  "KEY_HOLE_15";
+    private static  final String KEY_HOLE_16 =  "KEY_HOLE_16";
+    private static  final String KEY_HOLE_17 =  "KEY_HOLE_17";
+    private static  final String KEY_HOLE_18 =  "KEY_HOLE_18";
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(KEY_HOLE_1,hole1Swings);
+        outState.putInt(KEY_HOLE_2,hole2Swings);
+        outState.putInt(KEY_HOLE_3,hole3Swings);
+        outState.putInt(KEY_HOLE_4,hole4Swings);
+        outState.putInt(KEY_HOLE_5,hole5Swings);
+        outState.putInt(KEY_HOLE_6,hole6Swings);
+        outState.putInt(KEY_HOLE_7,hole7Swings);
+        outState.putInt(KEY_HOLE_8,hole8Swings);
+        outState.putInt(KEY_HOLE_9,hole9Swings);
+        outState.putInt(KEY_HOLE_10,hole10Swings);
+        outState.putInt(KEY_HOLE_11,hole11Swings);
+        outState.putInt(KEY_HOLE_12,hole12Swings);
+        outState.putInt(KEY_HOLE_13,hole13Swings);
+        outState.putInt(KEY_HOLE_14,hole14Swings);
+        outState.putInt(KEY_HOLE_15,hole15Swings);
+        outState.putInt(KEY_HOLE_16,hole16Swings);
+        outState.putInt(KEY_HOLE_17,hole17Swings);
+        outState.putInt(KEY_HOLE_18,hole18Swings);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        hole1Swings = savedInstanceState.getInt(KEY_HOLE_1);
+        hole2Swings = savedInstanceState.getInt(KEY_HOLE_2);
+        hole3Swings = savedInstanceState.getInt(KEY_HOLE_3);
+        hole4Swings = savedInstanceState.getInt(KEY_HOLE_4);
+        hole5Swings = savedInstanceState.getInt(KEY_HOLE_5);
+        hole6Swings = savedInstanceState.getInt(KEY_HOLE_6);
+        hole7Swings = savedInstanceState.getInt(KEY_HOLE_7);
+        hole8Swings = savedInstanceState.getInt(KEY_HOLE_8);
+        hole9Swings = savedInstanceState.getInt(KEY_HOLE_9);
+        hole10Swings = savedInstanceState.getInt(KEY_HOLE_10);
+        hole11Swings = savedInstanceState.getInt(KEY_HOLE_11);
+        hole12Swings = savedInstanceState.getInt(KEY_HOLE_12);
+        hole13Swings = savedInstanceState.getInt(KEY_HOLE_13);
+        hole14Swings = savedInstanceState.getInt(KEY_HOLE_14);
+        hole15Swings = savedInstanceState.getInt(KEY_HOLE_15);
+        hole16Swings = savedInstanceState.getInt(KEY_HOLE_16);
+        hole17Swings = savedInstanceState.getInt(KEY_HOLE_17);
+        hole18Swings = savedInstanceState.getInt(KEY_HOLE_18);
+
+        hole1Label.setText(String.valueOf(hole1Swings));
+        hole2Label.setText(String.valueOf(hole2Swings));
+        hole3Label.setText(String.valueOf(hole3Swings));
+        hole4Label.setText(String.valueOf(hole4Swings));
+        hole5Label.setText(String.valueOf(hole5Swings));
+        hole6Label.setText(String.valueOf(hole6Swings));
+        hole7Label.setText(String.valueOf(hole7Swings));
+        hole8Label.setText(String.valueOf(hole8Swings));
+        hole9Label.setText(String.valueOf(hole9Swings));
+        hole10Label.setText(String.valueOf(hole10Swings));
+        hole11Label.setText(String.valueOf(hole11Swings));
+        hole12Label.setText(String.valueOf(hole12Swings));
+        hole13Label.setText(String.valueOf(hole13Swings));
+        hole14Label.setText(String.valueOf(hole14Swings));
+        hole15Label.setText(String.valueOf(hole15Swings));
+        hole16Label.setText(String.valueOf(hole16Swings));
+        hole17Label.setText(String.valueOf(hole17Swings));
+        hole18Label.setText(String.valueOf(hole18Swings));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
