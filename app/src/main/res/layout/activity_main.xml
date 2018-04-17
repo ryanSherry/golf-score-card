@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 1:"
+            android:text="Hole 1: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -65,7 +65,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 2:"
+            android:text="Hole 2: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 3:"
+            android:text="Hole 3: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -157,7 +157,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 4:"
+            android:text="Hole 4: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -203,7 +203,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 5:"
+            android:text="Hole 5: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -249,7 +249,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 6:"
+            android:text="Hole 6: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -295,7 +295,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 7:"
+            android:text="Hole 7: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -341,7 +341,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 8:"
+            android:text="Hole 8: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -387,7 +387,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hole 9:"
+            android:text="Hole 9: "
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -836,6 +836,40 @@
         android:background="@android:color/darker_gray"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
+
+        <!--Sum of Swings-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Swings:"
+                android:layout_weight="1"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/sumOfSwingsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
 
 
 </LinearLayout>
