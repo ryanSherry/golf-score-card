@@ -106,6 +106,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView hole18Label;
     int hole18Swings = 0;
 
+
+    // Creating array to hold all keys for shared preferences
+    String KEY_HOLES[] = new String[18];
+
+    // Creating Hole Object array
+    private Hole[] mHoles = new Hole[18];
+
     //shared preferences
 
     private static  final String KEY_HOLE_1 =  "KEY_HOLE_1";
@@ -156,6 +163,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        for(int i = 0; i < KEY_HOLES.length; i++) {
+
+        }
+
         hole1Swings = savedInstanceState.getInt(KEY_HOLE_1);
         hole2Swings = savedInstanceState.getInt(KEY_HOLE_2);
         hole3Swings = savedInstanceState.getInt(KEY_HOLE_3);
@@ -263,6 +274,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Create the keys that will be used in sharedPreferences
+
+        for (int i = 0; i < KEY_HOLES.length; i++) {
+            KEY_HOLES[i] = "KEY_HOLE_" + (i+1);
+        }
+
+        //Initialize the hole objects
+
+        for (int i = 0; i < mHoles.length; i++) {
+            mHoles[i] = new Hole("Hole " + (i+1),0);
+        }
 
         // Assign the Views from the layout to the corresponding variables
 
