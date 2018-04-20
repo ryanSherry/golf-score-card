@@ -7,13 +7,16 @@ public class Hole {
 
         String mLabel;
         private int mHoleSwings;
+        TextView mMinus;
+        TextView mPlus;
+        TextView mHoleLabel;
 
-        private void increaseSwings(int holeSwings) {
-            holeSwings++;
+        public void increaseSwings(int holeSwings) {
+            setmHoleSwings(holeSwings + 1);
         }
 
-        private void decreaseSwings(int holeSwings) {
-            if (holeSwings != 0) holeSwings--;
+        public void decreaseSwings(int holeSwings) {
+            if (this.mHoleSwings != 0) setmHoleSwings(holeSwings-1);
         }
 
         public Hole(String label, int holeSwings) {
