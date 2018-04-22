@@ -14,11 +14,12 @@ import android.widget.TextView;
 
 public class MainActivity extends ListActivity {
 
-    TextView sumOfSwingsLabel;
-    int sumOfSwings = 0;
 
     // Creating Hole Object array
     private Hole[] mHoles = new Hole[18];
+
+    // Creating SwingsTotal Object
+    private SwingsTotal mSwingsTotal;
 
     //shared preferences
 
@@ -27,6 +28,7 @@ public class MainActivity extends ListActivity {
 
     private static final String KEY_SWING_TOTAL = "KEY_SWING_TOTAL";
     private ListAdapter mListAdapter;
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -45,31 +47,36 @@ public class MainActivity extends ListActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.clear_swings:
-//                clearSwings();
-//                return true;
-//                default:
-//                    return super.onOptionsItemSelected(item);
-//        }
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.clear_swings:
+                clearSwings();
+                return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
+    }
 
-//    private void clearSwings() {
-//        for(int i = 0; i < mHoles.length; i++) {
-//            mHoles[i].setmHoleSwings(0);
-//
-//        }
-//        sumOfSwings = 0;
-//        sumOfSwingsLabel.setText(String.valueOf(sumOfSwings));
-//
-//    }
+    private void clearSwings() {
+        for(int i = 0; i < mHoles.length; i++) {
+            mHoles[i].setmHoleSwings(0);
+
+        }
+        mSwingsTotal.setmTotalSwings(0);
+        mSwingsTotal.getmTotalSwingsLabel().setText(mSwingsTotal.getmTotalSwings() + "");
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mSwingsTotal = new SwingsTotal(0);
+
+        mSwingsTotal.setmTotalSwingsLabel((TextView) findViewById(R.id.totalSwings));
+
 
         //Create the keys that will be used in sharedPreferences
 
@@ -86,9 +93,8 @@ public class MainActivity extends ListActivity {
             mHoles[i] = new Hole("Hole " + (i+1),0);
         }
 
-        mListAdapter = new ListAdapter(this, mHoles);
+        mListAdapter = new ListAdapter(this, mHoles, mSwingsTotal);
         setListAdapter(mListAdapter);
-
 
     }
 

@@ -11,11 +11,14 @@ import android.widget.TextView;
 public class ListAdapter extends BaseAdapter {
 
     private final Context mContext;
-    private final Hole[] mHoles;
 
-    public ListAdapter(Context context, Hole[] holes){
+    private final Hole[] mHoles;
+    private SwingsTotal mSwingsTotal;
+
+    public ListAdapter(Context context, Hole[] holes, SwingsTotal swingsTotal){
         mContext = context;
         mHoles = holes;
+        mSwingsTotal = swingsTotal;
     }
 
     @Override
@@ -56,9 +59,13 @@ public class ListAdapter extends BaseAdapter {
         holder.removeStrokeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(mHoles[position].getmHoleSwings() > 0) mSwingsTotal.decreaseTotalSwings(mSwingsTotal.getmTotalSwings());
+                mSwingsTotal.getmTotalSwingsLabel().setText(mSwingsTotal.getmTotalSwings() + "");
                 int updatedStrokeCount = mHoles[position].decreaseSwings(mHoles[position].getmHoleSwings());
                 mHoles[position].setmHoleSwings(updatedStrokeCount);
                 holder.strokeCount.setText(updatedStrokeCount + "");
+
+//                mSwingsTotal.setmTotalSwings(mSwingsTotal.getmTotalSwings() - mHoles[position].getmHoleSwings());
             }
 
         });
@@ -68,6 +75,9 @@ public class ListAdapter extends BaseAdapter {
                 int updatedStrokeCount = mHoles[position].increaseSwings(mHoles[position].getmHoleSwings());
                 mHoles[position].setmHoleSwings(updatedStrokeCount);
                 holder.strokeCount.setText(updatedStrokeCount + "");
+
+                mSwingsTotal.increaseTotalSwings(mSwingsTotal.getmTotalSwings());
+                mSwingsTotal.getmTotalSwingsLabel().setText(mSwingsTotal.getmTotalSwings() + "");
             }
         });
 
@@ -80,4 +90,10 @@ public class ListAdapter extends BaseAdapter {
         Button removeStrokeButton;
         Button addStrokeButton;
     }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
+
 }
