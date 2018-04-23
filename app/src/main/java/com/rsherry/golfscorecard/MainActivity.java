@@ -2,6 +2,7 @@ package com.rsherry.golfscorecard;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends ListActivity {
@@ -26,18 +28,24 @@ public class MainActivity extends ListActivity {
     // Creating array to hold all keys for shared preferences
     final static String KEY_HOLES[] = new String[18];
 
+    // Creating totalSwings key
     private static final String KEY_SWING_TOTAL = "KEY_SWING_TOTAL";
+
+    // Creating ListAdapter for list
     private ListAdapter mListAdapter;
 
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putInt(KEY_SWING_TOTAL,mSwingsTotal.getmTotalSwings());
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        mSwingsTotal.setmTotalSwings(savedInstanceState.getInt(KEY_SWING_TOTAL));
+        mSwingsTotal.getmTotalSwingsLabel().setText(mSwingsTotal.getmTotalSwings() + "");
         }
 
     @Override
@@ -61,7 +69,7 @@ public class MainActivity extends ListActivity {
     private void clearSwings() {
         for(int i = 0; i < mHoles.length; i++) {
             mHoles[i].setmHoleSwings(0);
-
+            mListAdapter.notifyDataSetChanged();
         }
         mSwingsTotal.setmTotalSwings(0);
         mSwingsTotal.getmTotalSwingsLabel().setText(mSwingsTotal.getmTotalSwings() + "");
@@ -93,8 +101,12 @@ public class MainActivity extends ListActivity {
             mHoles[i] = new Hole("Hole " + (i+1),0);
         }
 
+        Parcelable state = getListView().onSaveInstanceState();
+
         mListAdapter = new ListAdapter(this, mHoles, mSwingsTotal);
         setListAdapter(mListAdapter);
+
+        getListView().onRestoreInstanceState(state);
 
     }
 

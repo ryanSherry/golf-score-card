@@ -91,9 +91,4 @@ public class ListAdapter extends BaseAdapter {
         Button addStrokeButton;
     }
 
-    @Override
-    public void notifyDataSetChanged() {
-        super.notifyDataSetChanged();
-    }
-
 }
